@@ -1,19 +1,22 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'nodejs'  // Nom que tu as configuré dans Global Tool Configuration
+    }
     stages {
         stage('Install') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
         stage('Build') {
             steps {
-                sh 'npm start'
+                bat 'node serveur.js'
             }
         }
     }
